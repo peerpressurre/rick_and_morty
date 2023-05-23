@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rick_and_morty/data/api/api_character.dart';
 import 'package:rick_and_morty/domain/character.dart';
-//import 'package:rick_and_morty/presentation/widgets/card_character.dart';
+import 'package:rick_and_morty/presentation/widgets/card_character.dart';
 
 final userProvider = Provider<ApiServise>((ref) => ApiServise());
 
@@ -28,8 +28,7 @@ class ListCharacter extends ConsumerWidget {
           ),
           shrinkWrap: true,
           children: [
-            Text(characters.first.toString())
-            //for (final person in characters) CardCharacter(character: person),
+            for (final person in characters) CardCharacter(character: person),
           ],
         );
       },

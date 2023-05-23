@@ -7,8 +7,18 @@ class ApiServise {
     final response =
         await http.get(Uri.parse('https://rickandmortyapi.com/api/character'));
     if (response.statusCode == 200) {
-      var characterJson = jsonDecode(response.body)['results'] as List<dynamic>;
-      return characterJson.map((c) => Character.fromJson(c)).toList();
+      final jsonData = json.decode(response.body);
+      final results = jsonData['results'];
+      final List<Character> characters = results.map<Character>((result) {
+        return Character(
+          name: result['name'],
+          status: result['status'],
+          gender: result['gender'],
+          location: result['location']['name'],
+          image: result['image'],
+        );
+      }).toList();
+      return characters;
     } else {
       throw Exception(response.reasonPhrase);
     }
