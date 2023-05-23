@@ -7,18 +7,41 @@ class CardCharacter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Row(children: [
-        Image.network(character.image.toString()),
-        Column(
-          children: [
-            Text(character.name.toString()),
-            Text(character.gender.toString()),
-            Text(character.status.toString()),
-            Text(character.location.toString()),
-          ],
-        )
-      ]),
+    return SizedBox(
+      height: 100,
+      width: 250,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Image.network(
+            character.image.toString(),
+            fit: BoxFit.cover,
+          ),
+          Center(
+            child: Column(
+              children: [
+                Text(character.name.toString()),
+                Text(character.gender.toString()),
+                Text(character.status.toString()),
+                Text(character.location.toString()),
+              ],
+            ),
+          )
+        ],
+      ),
     );
+    // child: Row(children: [
+    //   Expanded(
+    //       child:
+    //           Image.network(character.image.toString(), fit: BoxFit.cover)),
+    //   Column(
+    //     children: [
+    //       Text(character.name.toString()),
+    //       Text(character.gender.toString()),
+    //       Text(character.status.toString()),
+    //       Text(character.location.toString()),
+    //     ],
+    //   )
+    // ]),
   }
 }
