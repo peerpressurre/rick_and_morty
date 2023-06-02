@@ -7,41 +7,40 @@ class CardCharacter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 100,
-      width: 250,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Image.network(
-            character.image.toString(),
-            fit: BoxFit.cover,
-          ),
-          Center(
-            child: Column(
-              children: [
-                Text(character.name.toString()),
-                Text(character.gender.toString()),
-                Text(character.status.toString()),
-                Text(character.location.toString()),
-              ],
-            ),
-          )
-        ],
+    return  Container(
+
+      decoration: BoxDecoration(
+          color: Colors.blueGrey.shade100,
+          border: Border.all(width: 30, color: Colors.blueGrey.shade600)
       ),
-    );
-    // child: Row(children: [
-    //   Expanded(
-    //       child:
-    //           Image.network(character.image.toString(), fit: BoxFit.cover)),
-    //   Column(
-    //     children: [
-    //       Text(character.name.toString()),
-    //       Text(character.gender.toString()),
-    //       Text(character.status.toString()),
-    //       Text(character.location.toString()),
-    //     ],
-    //   )
-    // ]),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(padding: const EdgeInsets.only(top: 20),
+             child:
+                Container(
+              decoration: BoxDecoration(
+              border: Border.all(width: 30, color: Colors.blueGrey.shade600)
+      ),
+             child: Image.network(
+               character.image.toString(),
+               fit: BoxFit.cover,
+             ),
+                )
+              ),  
+                Padding(padding: const EdgeInsets.only(top: 10),
+                child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Text(character.name.toString(), style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 21)),
+      Text(character.gender.toString(), style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 16)),
+      Text(character.status.toString(), style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 16)),
+      Text(character.location.toString(), style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 16)),
+    ],
+                ),
+                ),
+          ],
+        ),
+      );
   }
 }
