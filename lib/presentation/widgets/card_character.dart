@@ -8,10 +8,9 @@ class CardCharacter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-
-      decoration: BoxDecoration(
-          color: Colors.blueGrey.shade100,
-          border: Border.all(width: 30, color: Colors.blueGrey.shade600)
+      //height: 200,
+      decoration: const BoxDecoration(   
+          color: Color(0xFFEEE6D7),
       ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -20,7 +19,8 @@ class CardCharacter extends StatelessWidget {
              child:
                 Container(
               decoration: BoxDecoration(
-              border: Border.all(width: 30, color: Colors.blueGrey.shade600)
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+              border: Border.all(width: 30, color: Colors.brown.shade600)
       ),
              child: Image.network(
                character.image.toString(),
